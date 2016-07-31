@@ -5,21 +5,11 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class source {
+public class source_4 {
 
 	/**
-	 * 
-	 * 
-	 * 나만의 해설 
-	 *  - > 정말 오랜 시간이 소요. 사소한 실수
-	 *  그리고 결국 범인은 if else if... 문을 쓰는데도 BL이 각각 있어 선언 순서가 의미가 있는데 그것을 간과한게 문제
-	 *  예외 케이스를 if문으로 너무 분기한 것도 하나의 잘못!!
-	 *  
-	 *  여튼 해결해서 속시원 얼른 다음문제 고고싱!!
-	 * 
 	 * 
 	 * 
 	 * 
@@ -73,10 +63,7 @@ public class source {
 		int N = Integer.parseInt(br.readLine().trim());
 		int Q = Integer.parseInt(br.readLine().trim());
 
-//		Map<Integer, ArrayList<Integer>> groupCountList = new HashMap<Integer, ArrayList<Integer>>();
-		
-		List<Integer>[] groupList = new ArrayList[N+1];
-		
+		Map<Integer, ArrayList<Integer>> groupCountList = new HashMap<Integer, ArrayList<Integer>>();
 		int[]  groupNum  = new int[N+1];
 
 		for(int q = 0; q < Q; q++ ) {
@@ -93,56 +80,52 @@ public class source {
 			if(!isQuestion) {
 				if(p1 == p2 ) {
 				} 
-				else if( groupNum1 == groupNum2 && groupNum1 != 0) {
+				else if( groupNum1 == groupNum2) {
 				}
 				else if(groupNum1 == 0 && groupNum2 == 0 ) {
-//					ArrayList newList = new ArrayList<Integer>();
+					ArrayList newList = new ArrayList<Integer>();
 					
 					int key = (p1 < p2) ? p1 : p2;
 					groupNum[p1] = key;	
 					groupNum[p2] = key;
-					
-					groupList[key] = new ArrayList<Integer>();
-					groupList[key].add(p1);
-					groupList[key].add(p2);
-					
+					newList.add(p1);
+					newList.add(p2);
+					groupCountList.put(key, newList);
 				} else if(groupNum1 != 0 && groupNum2 == 0) { 
-					groupList[groupNum1].add(p2);
+					groupCountList.get(groupNum1).add(p2);
 					groupNum[p2] = groupNum1;
 				} else if(groupNum1 == 0 && groupNum2 != 0){
-					groupList[groupNum2].add(p1);
+					groupCountList.get(groupNum2).add(p1);
 					groupNum[p1] = groupNum2;
 				} else { 
-					int group1Size  = groupList[groupNum1].size();
-					int group2Size =  groupList[groupNum2].size();
+					int group1Size  = groupCountList.get(groupNum1).size();
+					int group2Size =  groupCountList.get(groupNum2).size();
 
 					if(group1Size <= group2Size) {
 						for(int i =0; i <  group1Size; i++) {
-							int elem = groupList[groupNum1].get(i);
-							groupList[groupNum2].add(elem);
+							int elem = groupCountList.get(groupNum1).get(i);
+							groupCountList.get(groupNum2).add(elem);
 							groupNum[elem] = groupNum2;
 						}
-						groupList[groupNum1] = null;
+						groupCountList.remove(groupNum1);
 					}
 					else {
 						for(int i =0; i <  group2Size; i++) {
-							int elem = groupList[groupNum2].get(i);
-							groupList[groupNum1].add(elem);
+							int elem = groupCountList.get(groupNum2).get(i);
+							groupCountList.get(groupNum1).add(elem);
 							groupNum[elem] = groupNum1;
 						}
-						groupList[groupNum2] = null;
+						groupCountList.remove(groupNum2);
 					}
 				}
 			} else {
-				
-				if(p1 == p2)  bw.write("1\n"); 
+				if(p1 == p2)  bw.write("1\n");
 				else if(groupNum1  == groupNum2) {
 					if( groupNum1 == 0) bw.write("0\n"); 
 					else  bw.write("1\n");
 				}
 				else bw.write("0\n");
 			}
-	
 		}
 		bw.flush(); 
 		bw.close();

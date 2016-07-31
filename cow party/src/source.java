@@ -1,0 +1,75 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.PriorityQueue;
+
+class Vertex implements Comparable<Vertex> {
+	public Vertex(int id, int value) {
+		super();
+		this.id = id;
+		this.value = value;
+	}
+	int id;
+	int value;
+	@Override
+	public int compareTo(Vertex v) {
+		if(this.value < v.value) return 1;
+		else if(this.value == v.value) return 0;
+		return -1;
+	}
+}
+
+public class source {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		String[] splits = br.readLine().split(" ");
+		int n = Integer.parseInt(splits[0]);
+		int m = Integer.parseInt(splits[1]);
+		int x = Integer.parseInt(splits[2]);
+		
+		int[][] D = new int[n+1][n+1];
+		
+		for(int i = 0; i < m; m++) {
+			splits = br.readLine().split(" ");
+		
+			int s = Integer.parseInt(splits[0]);
+			int e = Integer.parseInt(splits[1]);
+			int t = Integer.parseInt(splits[2]);
+			
+			D[s][e] = t;
+		}
+		
+		/*
+		 * dijstra 알고리즘 구현
+		 */
+		//temporary setting
+		int s = 0;
+		int e = 3;
+		
+		PriorityQueue<Vertex> queue = new PriorityQueue<Vertex>();
+		
+		for(int i = 1; i <=n; i++ ) {
+			Vertex v;
+			if(i!=s) {
+				v = new Vertex(s, Integer.MAX_VALUE );
+			} else {
+				v = new Vertex(s, 0);
+			}
+			queue.add(v);
+		}
+		
+		while(!queue.isEmpty()) {
+				Vertex v = queue.poll();
+				
+				for(int i = 0 ; i <  )
+		}
+		
+		
+	}
+
+}

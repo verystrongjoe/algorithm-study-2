@@ -33,7 +33,7 @@ public class source {
 			int x = p / 101;
 			int y = p % 101;
 			
-			if(flag == visited[x][y]) visited
+//			if(flag == visited[x][y]) visited
 				
 			
 		}
