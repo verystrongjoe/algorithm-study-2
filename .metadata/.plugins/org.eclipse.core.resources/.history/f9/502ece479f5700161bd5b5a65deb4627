@@ -1,0 +1,13 @@
+$(document).ready(function() {
+  // to add *active* class on active tab.
+  var active_tabs = $('body').data('active-tab').split(' ');
+  active_tabs.forEach(function(active_tab) {
+    $('.nav-' + active_tab).addClass('active');
+  });
+
+  // confirmation for every elements
+  $('[data-toggle="confirmation"]').confirmation();
+
+  // copy to clipboard
+  var clipboard = new Clipboard('[data-toggle="clipboard"]') ;
+});

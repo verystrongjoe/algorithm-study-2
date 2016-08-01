@@ -1,0 +1,89 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class source {
+
+	
+	/**
+	 * 
+	 */
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		br.readLine();
+		
+		for(int i = 0; i < n; i++) {
+			for(int j = i+1; j < n; j++) {
+				
+				int dx = point[i].x - point[j].x;
+				int dy = point[i].y - point[j].y;
+
+				if( dx == 0 ||  dy == 0)  {
+					
+					int result;
+					
+					if(dx == 0 ) {
+						result = Math.abs(dy);
+					}else{
+						result = Math.abs(dx);
+					}
+					
+					if(minE > result ) {
+						minE = result;
+						p1e = i;
+						p2e = j;
+					}
+					
+					if(minC > result ) {
+						minC = result;
+						p1c = i;
+						p2c = j;
+					}
+					
+					if(minM > result ) {
+						minM = result;
+						p1m = i;
+						p2m = j;
+					}
+					
+				} else {
+
+					int resultE = (int) Math.sqrt(Math.pow(dx ,  2)  +  Math.pow( dy, 2));
+					int resultM = Math.abs(dx) + Math.abs(dy); // 
+					int resultC = Math.max(Math.abs(dx),Math.abs(dy));
+					
+					if(minE > resultE ) {
+						minE = resultE;
+						p1e = i;
+						p2e = j;
+					}
+					
+					if(minM > resultM ) {
+						minM = resultM;
+						p1m = i;
+						p2m = j;
+					}
+					
+					if(minC > resultC ) {
+						minC = resultC;
+						p1c = i;
+						p2c = j;
+					}
+					
+
+					
+				}
+				
+			}
+		}
+		
+		System.out.println((p1e +1) + " " +( p2e +1));
+		System.out.println((p1m +1) + " " + (p2m +1));
+		System.out.println((p1c +1) + " " + (p2c +1));
+	}
+
+}
+
+

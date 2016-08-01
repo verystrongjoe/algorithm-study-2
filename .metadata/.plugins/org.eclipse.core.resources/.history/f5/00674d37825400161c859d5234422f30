@@ -1,0 +1,71 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
+
+public class source {
+	
+	static List<Integer>[] parents;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int n = Integer.parseInt(br.readLine().trim());
+		String[] splits = br.readLine().split(" ");
+		int q1 = Integer.parseInt(splits[0]);
+		int q2 = Integer.parseInt(splits[1]);
+		int m = Integer.parseInt(br.readLine().trim());
+		parents = new ArrayList[n]; 
+		
+		for(int i = 0; i < m; i++) {
+			splits = br.readLine().split(" ");
+			int x = Integer.parseInt(splits[0]);
+			int y = Integer.parseInt(splits[1]);
+			
+			if(parents[x] == null) parents[x] = new ArrayList<Integer>();
+			if(!parents[x].contains(y)) parents[x].add(y);
+		}
+		
+		System.out.println(  bfs(q1,q2)        );
+		System.out.println(  bfs(q2,q1)        );
+	}
+
+	private static int bfs(int q1, int q2) {
+		
+		Queue<Integer> queue = new LinkedList<Integer>();
+		
+		queue.add(q1);
+		
+		boolean isFound = false;
+		int depth = 1;
+		
+		while(!queue.isEmpty()) {
+
+			int q = queue.poll();
+			
+			if(parents[q] == null) return -1;
+
+			for(int c : parents[q]) {
+				if(c == q2) {
+					isFound = true;
+					break;
+				} else {
+					queue.add(c);
+				}
+				depth++;
+			}
+		}
+		
+		if(!isFound) return -1;
+		return depth;
+		
+	}
+
+}

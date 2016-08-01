@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;stack&apos; in &apos;source.main(...)&apos; to &apos;indexStack&apos;&#x0D;&#x0A;- Original project: &apos;바벨 정렬&apos;&#x0D;&#x0A;- Original element: &apos;source.main(String[]).stack&apos;&#x0D;&#x0A;- Renamed element: &apos;stack&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;stack&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{source.java[source~main~\[QString;@stack!1584!1627!1599!1603!QStack\&lt;QInteger;&gt;;!0!false" name="indexStack" references="true" stamp="1469707254340" version="1.0"/>
+</session>

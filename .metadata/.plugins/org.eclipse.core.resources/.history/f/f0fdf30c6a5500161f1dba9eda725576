@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class source {
+
+	
+	/**
+	 * 
+	 * 
+	 * http://sonhy1.tistory.com/41
+	 * 
+	 * 
+	 * 문제
+			문자열이 주어질 때, 2진 huffman 압축을 통해 decoding된 2진수의 길이를 출력하라.
+			
+			ex) AAAABBBCC → A:1, B:00, C:01 → 11110000000101 → 14
+			
+			입력
+			첫째 줄에 문자열이 주어진다.
+			
+			문자열은 대문자 알파벳으로만 구성되어 있으며 길이가 10만을 넘지 않는다.
+			
+			출력
+			입력으로 주어진 문자열을 2진 huffman 압축 하였을 때, decoding된 결과의 길이를 출력하라.
+			
+			힌트
+			예제 입력
+			
+			AAAABBBCC
+			예제 출력
+			
+			14
+
+	 */
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		br.readLine();
+		
+		
+		int N = 1000000;
+
+		for(int i = 0 ; i < N; i++) {
+			
+		}
+		
+		
+	}
+		
+
+}
+
+

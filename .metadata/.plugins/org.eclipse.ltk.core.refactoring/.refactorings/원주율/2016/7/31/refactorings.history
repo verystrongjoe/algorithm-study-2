@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;source.java&apos; to &apos;huffman/src&apos;&#x0D;&#x0A;- Original project: &apos;원주율&apos;&#x0D;&#x0A;- Destination element: &apos;huffman/src&apos;&#x0D;&#x0A;- Original element: &apos;source.java&apos;" description="Copy compilation unit" destination="=huffman/src" element1="/src&lt;{source.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1469782234673" units="1" version="1.0"/>
+</session>

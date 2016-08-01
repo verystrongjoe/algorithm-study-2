@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://koitp.org/problem/SDS_PRO_6_2/read/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <title>Korea Olympiad in Informatics Traing Program</title>
+
+    <link rel="stylesheet" href="./Korea Olympiad in Informatics Traing Program_files/bootstrap.min.css">
+    <link rel="stylesheet" href="./Korea Olympiad in Informatics Traing Program_files/base.css">
+    
+</head>
+
+<body data-active-tab=" problem-read">
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="http://koitp.org/">KOITP</a>
+                <button type="button" class="navbar-toggle collapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    
+                    <li><a href="http://koitp.org/problem/SDS_PRO_6_2/read/#">strongjoe</a></li>
+                    
+                    <li class="nav-logout"><a href="http://koitp.org/accounts/logout/">로그아웃</a></li>
+                    
+                </ul>
+
+                <ul class="nav navbar-nav">
+                    <li class="nav-problems"><a href="http://koitp.org/problems/">문제</a></li>       
+                    <li class="nav-submissions"><a href="http://koitp.org/submissions/">제출 현황</a></li>       
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    
+<div class="container">
+    <div class="page-header"><h1>[8월 1일 2번] 돌다리 건너기</h1></div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <ul class="nav nav-pills nav-stacked">
+                <li class="nav-problem-read active"><a href="http://koitp.org/problem/SDS_PRO_6_2/read/">문제</a></li>
+                <li class="nav-problem-submit"><a href="http://koitp.org/problem/SDS_PRO_6_2/submit/">답안 제출</a></li>
+                
+            </ul>
+        </div>
+
+        <div class="col-md-10">
+            
+
+<div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+            <tr>
+                <th>시간 제한</th>
+                <th>메모리 제한</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.0 초</td>
+                <td>512 MB</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div>
+    <fieldset>
+        <legend>문제</legend>
+        <div id="ProblemStatement"><p>절대반지를 얻기 위하여 반지원정대가 출발한다. 원정대가 지나가야할 다리는 두 개의 인접한 돌다리로 구성되어 있다. 하나는 &lt;악마의 돌다리&gt;이로 다른 하나는 &lt;천사의 돌다리&gt;이다.</p>
+<p>아래 그림 1은 길이가 6인 다리의 한 가지 모습을 보여준다. 그림에서 위의 가로줄은 &lt;악마의 돌다리&gt;를 표시하는 것이고, 아래의 가로줄은 &lt;천사의 돌다리&gt;를 표시한다. 두 돌다리의 길이는 항상 동일하며, 각 칸의 문자는 해당 돌에 새겨진 문자를 나타낸다. 두 다리에 새겨진 각 문자는 {R, I, N, G, S} 중 하나이다.</p>
+<p><img src="./Korea Olympiad in Informatics Traing Program_files/saved_resource" alt=""></p>
+<p>반지원정대가 소유하고 있는 마법의 두루마리에 &lt;악마의 돌다리&gt;와 &lt;천사의 돌다리&gt;를 건너갈 때 반드시 순서대로 밟고 지나가야할 문자들이 적혀있다. 이 순서대로 지나가지 않으면 돌다리는 무너져 반지원정대는 화산 속으로 떨어지게 된다.</p>
+<p>다리를 건널 때 다음의 제한 조건을 모두 만족하면서 건어야 한다.</p>
+<p>1) 왼쪽(출발지역)에서 오른쪽(도착지역)으로 다리를 지나가야 하며, 반드시 마법의 두루마리에 적힌 문자열의 순서대로 모두 밟고 지나가야 한다.</p>
+<p>2) 반드시 &lt;악마의 돌다리&gt;와 &lt;천사의 돌다리&gt;를 번갈아가면서 돌을 밟아야 한다. 단, 출발은 어떤 돌다리에서 시작해도 된다.</p>
+<p>3) 반드시 한 칸 이상 오른쪽으로 전진해야하며, 건너뛰는 칸의 수에는 상관이 없다. 만일 돌다리의 모양이 그림 1고 같고 두루마리의 문자열이 "RGS"라면 돌다리를 건너갈 수 있는 경우는 다음의 3가지 뿐이다. (아래 그림에서 크게 표현된 문자는 밟고 지나가는 돌다리를 나타낸다.)</p>
+<p><img src="./Korea Olympiad in Informatics Traing Program_files/saved_resource(1)" alt=""></p>
+<p>아래의 세 방법은 실패한 방법이다.</p>
+<p><img src="./Korea Olympiad in Informatics Traing Program_files/saved_resource(2)" alt=""></p>
+<p>왜냐하면 첫 번째는 문자열 "RGS"를 모두 밟고 지나가야 하는 조건 1)을 만족하지 않으면, 두 번째는 번갈아가면서 돌을 밟아야 하는 조건 2)를, 세 번째는 앞으로 전진을 하여야하는 조건 3)을 만족하지 않기 때문이다.</p>
+<p>마법의 두루마리에 적힌 문자열과 두 다리의 돌에 새겨진 문자열이 주어졌을 때, 돌다리를 통과할 수 있는 모든 가능한 방법의 수를 계산하는 프로그램을 작성하시오. 예를 들어, 그림 1의 경우는 통과하는 방법이 3가지가 있으므로 3을 출력해야 한다.</p>
+</div>
+    </fieldset>
+
+    <fieldset>
+        <legend>입력</legend>
+        <div id="ProblemInputConvention"><p>첫 번째 줄에는 마법의 두루마리에 적힌 문자열(R, I, N, G, S 로만 구성된)이 주어진다. 이 문자열의 길이는 최소 1, 최대 20 이다. </p>
+<p>두 번째 줄에는 각각 &lt;악마의 돌다리&gt;와 &lt;천사의 돌다리&gt;를 나타내는 같은 길이의 문자열이 주어진다. 그 길이는 1 이상, 100 이하이다.</p>
+</div>
+    </fieldset>
+
+    <fieldset>
+        <legend>출력</legend>
+        <div id="ProblemOutputConvention"><p>첫째 줄에 마법의 두루마리에 적힌 문자열의 순서대로 다리를 건너갈 수 있는 방법의 수를 출력한다. 그러한 방법이 없으면 0을 출력한다.</p>
+<p>답은 항상 부호있는 32비트 정수형으로 표현할 수 있는 범위 내에 존재한다.</p>
+</div>
+    </fieldset>
+
+    <fieldset>
+        <legend>힌트</legend>
+        <div id="ProblemHint"><h4 id="-1">입력 예제 1</h4>
+<pre><code>RGS
+RINGSR
+GRGGNS
+</code></pre><h4 id="-1">출력 예제 1</h4>
+<pre><code>3
+</code></pre><h4 id="-2">입력 예제 2</h4>
+<pre><code>RINGS
+SGNIRSGNIR
+GNIRSGNIRS
+</code></pre><h4 id="-2">출력 예제 2</h4>
+<pre><code>0
+</code></pre><h4 id="-3">입력 예제 3</h4>
+<pre><code>GG
+GGGGRRRR
+IIIIGGGG
+</code></pre><h4 id="-3">출력 예제 3</h4>
+<pre><code>16
+</code></pre></div>
+    </fieldset>
+</div>
+
+        </div>
+    </div>
+</div>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2016 All Rights Reserved. KOITP</p>
+        </div>
+    </footer>
+
+    <script src="./Korea Olympiad in Informatics Traing Program_files/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script> 
+    <script src="./Korea Olympiad in Informatics Traing Program_files/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="./Korea Olympiad in Informatics Traing Program_files/clipboard.min.js"></script>
+    <script src="./Korea Olympiad in Informatics Traing Program_files/bootstrap-confirmation.min.js"></script>
+    <script src="./Korea Olympiad in Informatics Traing Program_files/base.js"></script>
+
+    
+<script src="./Korea Olympiad in Informatics Traing Program_files/marked.js"></script>
+<script>
+$(document).ready(function() {
+    document.getElementById('ProblemStatement').innerHTML = marked('절대반지를 얻기 위하여 반지원정대가 출발한다. 원정대가 지나가야할 다리는 두 개의 인접한 돌다리로 구성되어 있다. 하나는 \u003C악마의 돌다리\u003E이로 다른 하나는 \u003C천사의 돌다리\u003E이다.\u000D\u000A\u000D\u000A아래 그림 1은 길이가 6인 다리의 한 가지 모습을 보여준다. 그림에서 위의 가로줄은 \u003C악마의 돌다리\u003E를 표시하는 것이고, 아래의 가로줄은 \u003C천사의 돌다리\u003E를 표시한다. 두 돌다리의 길이는 항상 동일하며, 각 칸의 문자는 해당 돌에 새겨진 문자를 나타낸다. 두 다리에 새겨진 각 문자는 {R, I, N, G, S} 중 하나이다.\u000D\u000A\u000D\u000A![](/download_file/3f0a62f4164a80fb8d0a6f46e7d9e8bdfbdb15ce765b161ece672a94cd099dba/1.png/?show\u003Dtrue)\u000D\u000A\u000D\u000A반지원정대가 소유하고 있는 마법의 두루마리에 \u003C악마의 돌다리\u003E와 \u003C천사의 돌다리\u003E를 건너갈 때 반드시 순서대로 밟고 지나가야할 문자들이 적혀있다. 이 순서대로 지나가지 않으면 돌다리는 무너져 반지원정대는 화산 속으로 떨어지게 된다.\u000D\u000A\u000D\u000A다리를 건널 때 다음의 제한 조건을 모두 만족하면서 건어야 한다.\u000D\u000A\u000D\u000A1) 왼쪽(출발지역)에서 오른쪽(도착지역)으로 다리를 지나가야 하며, 반드시 마법의 두루마리에 적힌 문자열의 순서대로 모두 밟고 지나가야 한다.\u000D\u000A\u000D\u000A2) 반드시 \u003C악마의 돌다리\u003E와 \u003C천사의 돌다리\u003E를 번갈아가면서 돌을 밟아야 한다. 단, 출발은 어떤 돌다리에서 시작해도 된다.\u000D\u000A\u000D\u000A3) 반드시 한 칸 이상 오른쪽으로 전진해야하며, 건너뛰는 칸의 수에는 상관이 없다. 만일 돌다리의 모양이 그림 1고 같고 두루마리의 문자열이 \u0022RGS\u0022라면 돌다리를 건너갈 수 있는 경우는 다음의 3가지 뿐이다. (아래 그림에서 크게 표현된 문자는 밟고 지나가는 돌다리를 나타낸다.)\u000D\u000A\u000D\u000A\u000D\u000A![](/download_file/07c21385c9eecb542ed8524c4552c9a47750599639a1bef20335a2ce9ea86f54/2.png/?show\u003Dtrue)\u000D\u000A\u000D\u000A\u000D\u000A아래의 세 방법은 실패한 방법이다.\u000D\u000A\u000D\u000A![](/download_file/28d8d1a76773d7f48d83f27da34f311a3108a2a004ff7247b34d48547eba4120/3.png/?show\u003Dtrue)\u000D\u000A\u000D\u000A왜냐하면 첫 번째는 문자열 \u0022RGS\u0022를 모두 밟고 지나가야 하는 조건 1)을 만족하지 않으면, 두 번째는 번갈아가면서 돌을 밟아야 하는 조건 2)를, 세 번째는 앞으로 전진을 하여야하는 조건 3)을 만족하지 않기 때문이다.\u000D\u000A\u000D\u000A마법의 두루마리에 적힌 문자열과 두 다리의 돌에 새겨진 문자열이 주어졌을 때, 돌다리를 통과할 수 있는 모든 가능한 방법의 수를 계산하는 프로그램을 작성하시오. 예를 들어, 그림 1의 경우는 통과하는 방법이 3가지가 있으므로 3을 출력해야 한다.');
+    document.getElementById('ProblemInputConvention').innerHTML = marked('첫 번째 줄에는 마법의 두루마리에 적힌 문자열(R, I, N, G, S 로만 구성된)이 주어진다. 이 문자열의 길이는 최소 1, 최대 20 이다. \u000D\u000A\u000D\u000A두 번째 줄에는 각각 \u003C악마의 돌다리\u003E와 \u003C천사의 돌다리\u003E를 나타내는 같은 길이의 문자열이 주어진다. 그 길이는 1 이상, 100 이하이다.');
+    document.getElementById('ProblemOutputConvention').innerHTML = marked('첫째 줄에 마법의 두루마리에 적힌 문자열의 순서대로 다리를 건너갈 수 있는 방법의 수를 출력한다. 그러한 방법이 없으면 0을 출력한다.\u000D\u000A\u000D\u000A답은 항상 부호있는 32비트 정수형으로 표현할 수 있는 범위 내에 존재한다.');
+    document.getElementById('ProblemHint').innerHTML = marked('#### 입력 예제 1\u000D\u000A```\u000D\u000ARGS\u000D\u000ARINGSR\u000D\u000AGRGGNS\u000D\u000A```\u000D\u000A#### 출력 예제 1\u000D\u000A```\u000D\u000A3\u000D\u000A```\u000D\u000A\u000D\u000A#### 입력 예제 2\u000D\u000A```\u000D\u000ARINGS\u000D\u000ASGNIRSGNIR\u000D\u000AGNIRSGNIRS\u000D\u000A```\u000D\u000A#### 출력 예제 2\u000D\u000A```\u000D\u000A0\u000D\u000A```\u000D\u000A\u000D\u000A#### 입력 예제 3\u000D\u000A```\u000D\u000AGG\u000D\u000AGGGGRRRR\u000D\u000AIIIIGGGG\u000D\u000A```\u000D\u000A#### 출력 예제 3\u000D\u000A```\u000D\u000A16\u000D\u000A```');
+});
+</script>
+
+
+
+
+</body></html>

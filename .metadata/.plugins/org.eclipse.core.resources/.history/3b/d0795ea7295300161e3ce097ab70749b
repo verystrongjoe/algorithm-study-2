@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+public class source {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		String[] splits = br.readLine().split(" ");
+		
+		int N = Integer.parseInt(splits[0]);
+		int K = Integer.parseInt(splits[1]);
+		
+		int[] list = new int[N];
+		for(int i = 0 ; i < list.length; i++) {
+			list[i] =  Integer.parseInt(br.readLine().trim());
+		}
+		
+//		mergeSort(list);
+		Arrays.sort(list);
+		
+		System.out.println(list[K]);
+	}
+
+}

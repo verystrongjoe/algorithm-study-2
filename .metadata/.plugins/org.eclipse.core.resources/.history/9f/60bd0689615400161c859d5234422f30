@@ -1,0 +1,83 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class source {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
+		int N = Integer.parseInt(br.readLine().trim());
+		int Q = Integer.parseInt(br.readLine().trim());
+
+		Map<Integer, ArrayList<Integer>> groupCountList = new HashMap<Integer, ArrayList<Integer>>();
+		int[]  groupNum  = new int[N+1];
+
+		for(int q = 0; q < Q; q++ ) {
+			
+			String[] splits = br.readLine().split(" ");
+			boolean isQuestion;
+			int p1, p2;
+			isQuestion = (Integer.parseInt(splits[0]) ==0 ) ? false : true;
+			p1 = Integer.parseInt(splits[1]);
+			p2 = Integer.parseInt(splits[2]);
+			int groupNum1 = groupNum[p1];
+			int groupNum2 = groupNum[p2];
+			
+			if(!isQuestion) {
+				if(p1 == p2 ) {
+				} 
+				else if( groupNum1 == groupNum2) {
+				}
+				else if(groupNum1 == 0 && groupNum2 == 0 ) {
+					ArrayList newList = new ArrayList<Integer>();
+					groupNum[p1] = p1;	
+					groupNum[p2] = p1;
+					newList.add(p1);
+					newList.add(p2);
+					groupCountList.put(p1, newList);
+				} else if(groupNum1 != 0 && groupNum2 == 0) { 
+					groupCountList.get(groupNum1).add(p2);
+					groupNum[p2] = groupNum1;
+				} else if(groupNum1 == 0 && groupNum2 != 0){
+					groupCountList.get(groupNum2).add(p1);
+					groupNum[p1] = groupNum2;
+				} else { 
+					int group1Size  = groupCountList.get(groupNum1).size();
+					int group2Size =  groupCountList.get(groupNum2).size();
+					int deleteGroupIndex;
+
+					if(group1Size <= group2Size) {
+						for(int i =0; i <  group1Size; i++) {
+							int elem = groupCountList.get(groupNum1).get(i);
+							groupCountList.get(groupNum2).add(elem);
+							groupNum[elem] = groupNum2;
+						}
+						groupCountList.remove(groupNum1);
+					}
+					else {
+						for(int i =0; i <  group2Size; i++) {
+							int elem = groupCountList.get(groupNum2).get(i);
+							groupCountList.get(groupNum1).add(elem);
+							groupNum[elem] = groupNum1;
+						}
+						groupCountList.remove(groupNum2);
+					}
+				}
+			} else {
+				if(p1 == p2)  bw.write("1\n");
+				else if(groupNum1 == groupNum2) bw.write("1\n");
+				else bw.write("0\n");
+			}
+		}
+		bw.flush(); 
+		bw.close();
+	}
+}

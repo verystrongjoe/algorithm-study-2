@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469580305637_1" label="160727" name="160727">
+<item elementID="=동맹의 동맹은 동맹" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=작은 소수들의 곱셈" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=중앙값" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=태양이와 울타리" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=중화요리" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469661538297_3" label="160728" name="160728">
+<item elementID="=cow party" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=바벨 정렬" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=촌수 계산" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469669757647_4" label="170725" name="170725">
+<item elementID="=소수 경로" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=이천수" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=재밌는 게임" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=N_Queen" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=인접한 비트의 개수" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=등산" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469680195137_5" label="아카이브" name="아카이브"/>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469680206605_6" label="160726" name="160726">
+<item elementID="=집합" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=지은이가 지은 집" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=K번째 수" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=가장 많은 수" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=합분배" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/막대기" type="4"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469782103276_7" label="160729" name="160729">
+<item elementID="=number of inversion" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=원주율" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=huffman" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=가까운 두 점 찾기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=palindrom" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1470007146925_8" label="160801" name="160801">
+<item elementID="=돌다리 건너기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=풍선" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=폐지 줍기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1459303092313_0" label="Window Working Set" name="Aggregate for window 1459303092313"/>
+</workingSetManager>
