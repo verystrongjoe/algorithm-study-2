@@ -5,7 +5,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class source {
@@ -57,12 +59,21 @@ public class source {
 		int Bn = (int) sorted.get(0);
 		int start, end;
 		
-		Stack<Integer> indexStack = new Stack<Integer>();
+//		Stack<Integer> indexStack = new Stack<Integer>();
+		LinkedList<Integer> cycle = new LinkedList();
+		
 
-		indexStack.add(0);
-		start = 0;
- 		
+		
+		
+		do {
+			cycle.addLast(start);
+			cycle.addLast(    sorted.indexOf(things.get(start))      );
+			start++;
+		} while(start <n);
+		
+		
 		for(int i = start ;  i <n; i++) {
+
 			
 			if(indexStack.contains( sorted.indexOf(  things.get(i) )) ) {
 				
