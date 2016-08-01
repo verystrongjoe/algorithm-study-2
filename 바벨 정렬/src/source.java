@@ -26,9 +26,6 @@ public class source {
 			 things.add(Integer.parseInt(br.readLine()));
 		}
 		
-		sorted.addAll(things);
-		Collections.sort(sorted);
-
 		/**
 		 * 사이클 순회 문제를 풀기 위해서 아래의 공식이 필요하다.
 		 * 
@@ -53,16 +50,19 @@ public class source {
 		 *  2. 찾은 사이클들을 이터레이션 돌면서 위의 공식대로 비용 합산
 		 */
 		
+		sorted.addAll(things);
+		Collections.sort(sorted);
+		
 		int weightTotal = 0 ;
 		int Bn = (int) sorted.get(0);
 		int start, end;
-
+		
 		Stack<Integer> indexStack = new Stack<Integer>();
+
 		indexStack.add(0);
-		
 		start = 0;
-		
-		for(int i = 0 ;  i <n; i++) {
+ 		
+		for(int i = start ;  i <n; i++) {
 			
 			if(indexStack.contains( sorted.indexOf(  things.get(i) )) ) {
 				
@@ -71,25 +71,29 @@ public class source {
 				int C = 0, counter;
 		
 				end = i;
-				
-				start = sorted.indexOf(  things.get(i) );
-				indexStack.add(i+1);
-				
 				C = end - start + 1;
+				int tmp = end;
 
-				while( end >= start) {
-					int w = (int) things.get(end--);
+				while( tmp >= start) {
+					int w = (int) things.get(tmp--);
 					if(w < Sn) Sn = w;
 					S+=w;
 				}
 				
 				weightTotal += Math.min(   S + Sn*(C-2)      ,      S+Sn+Bn*(C+1)   );
-//				if(i+1<n ) {	
-//					indexStack = new Stack<Integer>();
-//					start = i+1;
-//					start = sorted.indexOf(  things.get(i) );
-//					indexStack.add(i+1);
-//				}
+				
+				indexStack = new Stack<Integer>();
+				start = sorted.indexOf(  things.get(i) );
+				indexStack.add(start);
+				
+				ArrayList<Integer> subSorted = new ArrayList<Integer>();
+				for(int r = start; r <= end; r++ ) {
+					subSorted.add((Integer) things.get(r));
+				}
+				Collections.sort(subSorted);
+				for(int r = start; r <= end; r++ ) {
+					things.set(r,  subSorted.get(r));
+				}
 				
 			} else {
 				indexStack.add( sorted.indexOf(  things.get(i)  ));

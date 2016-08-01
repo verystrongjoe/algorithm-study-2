@@ -53,29 +53,62 @@ import java.util.concurrent.ArrayBlockingQueue;
 		3
  * 
  */
-public class source {
+public class source3 {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		String[] splits = br.readLine().split(" ");
 		
-		int[] balloons = new int[N+1];
-		int[] heights = new int[N+1];
+//		int[] balloons = new int[N];
+		List<Integer> balloons = new ArrayList<Integer>();
+		
+//		int poppedCnt = 0;
+		int target = 0, height = -1, arrowCnt = 0;
 
 		for(int i = 0 ; i < N; i++) {
-			balloons[i] = Integer.parseInt(splits[i]);
+//			balloons[i] = Integer.parseInt(splits[i]);
+			balloons.add(  Integer.parseInt(splits[i]) );
 		}
 		
-		for(int i=0 ; i<N; i++) {
+//		while(poppedCnt != N) {
+		while(balloons.size() != 0) {
 			
-			if(balloons[i] != 0) {
-				heights[i] =  balloons[i] - 1;
+			arrowCnt++; 			/// 화살 사용!
+			
+			// Arrow가 처음 풍선을 맞추는 거 셋팅
+			for(int i =target; i<balloons.size(); i++) {
+//				if(balloons[i] != 0) {
+				if(balloons.get(i) != 0) {
+					height = balloons.get(i) -1;
+//					balloons[i] = 0;
+					balloons.remove(i);
+					target = i;
+//					poppedCnt++;
+					break;
+				}
+				
+			}
+			int i  = target;
+			// 처음 맞춘 이후 뒤의 풍선 날리는것 계산
+//			for(int i =target; i<N && height > 0; i++) {
+//				if(balloons[i] != 0 && balloons[i] == height) {
+				
+			while(i<balloons.size()) {
+				if(balloons.get(i) == height) {
+					height--;
+//					balloons[i] = 0;
+					balloons.remove(i);
+//					poppedCnt++;
+//					if(target==i) target = i+1;  
+				} else {
+//					target = i;
+					i++;
+				}
 			}
 			
+			
 		}
-		
-		
 		System.out.println(arrowCnt);
 	}
 }

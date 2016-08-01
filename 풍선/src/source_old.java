@@ -1,18 +1,9 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ArrayBlockingQueue;
 /**
  * 
- * 
- * 해설
- * 	
- *  	이 문제를 통하여
- * 
  * 문제
-
 		큰 방에 N개의 풍선이 떠있다. 풍선들은 왼쪽부터 오른쪽까지 일렬로 있다. 진솔이는 화살 가지고 노는 것과 사냥 연습하는 것을 좋아한다. 진솔이는 화살을 왼쪽에서 오른쪽으로 쏜다.
 		
 		높이는 임의로 선택한다. 화살은 선택된 높이 H에서 풍선을 마주칠 때까지 왼쪽에서 오른쪽으로 이동한다. 화살이 풍선을 마주치는 순간, 풍선은 터지고 사라진다. 화살은 계속해서 가던길을 가는데 높이는 1 줄어든다. 그러므로 만약 화살이 높이 H에서 이동 중이었다면 풍선을 터트린 후에는 높이가 H-1이 된다.
@@ -53,29 +44,43 @@ import java.util.concurrent.ArrayBlockingQueue;
 		3
  * 
  */
-public class source {
+public class source_old {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int N = Integer.parseInt(br.readLine());
 		String[] splits = br.readLine().split(" ");
-		
-		int[] balloons = new int[N+1];
-		int[] heights = new int[N+1];
+		int[] balloons = new int[N];
+		int[] poppedBalloon = new int[N];
+		int poppedCnt = 0;
+		int target = 0, height = -1, arrowCnt = 0;
 
-		for(int i = 0 ; i < N; i++) {
-			balloons[i] = Integer.parseInt(splits[i]);
-		}
+		for(int i = 0 ; i < N; i++) balloons[i] = Integer.parseInt(splits[i]);
 		
-		for(int i=0 ; i<N; i++) {
+		while(poppedCnt != N) {
 			
-			if(balloons[i] != 0) {
-				heights[i] =  balloons[i] - 1;
+			arrowCnt++; 			/// 화살 사용!
+			
+			// Arrow가 처음 풍선을 맞추는 거 셋팅
+			for(int i =target; i<N; i++) {
+				if(poppedBalloon[i] == 0) {
+					poppedBalloon[i] = 1;
+					height = balloons[i]-1;
+					target = i+1;
+					poppedCnt++;
+					break;
+				}
 			}
 			
+			// 처음 맞춘 이후 뒤의 풍선 날리는것 계산
+			for(int i =target; i<N && height > 0; i++) {
+				if(poppedBalloon[i] == 0 && balloons[i] == height) {
+					height--;
+					poppedBalloon[i] = 1;
+					poppedCnt++;
+				}
+			}
 		}
-		
-		
 		System.out.println(arrowCnt);
 	}
 }
