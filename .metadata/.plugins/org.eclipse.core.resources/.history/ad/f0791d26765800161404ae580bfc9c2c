@@ -1,0 +1,133 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Stack;
+
+/****
+ * 
+ * 
+ * 
+ * http://koitp.org/problem/SDS_PRO_4_7/read/
+ * 
+ * 
+ * 
+		 * 사이클 순회 문제를 풀기 위해서 아래의 공식이 필요하다.
+		 * 
+		 * C 사이클 크기 S 사이클 전체 합 Sn 사이클 가장 작은 값 Bn 배열 중 가장 작은 값 이라고 한다면
+		 * 사이클을 전부 찾아서 아래의 공식에 위를 참조하여 대입해서 구하면 된다.
+		 * 
+		 *  사이클당 사이클 해소를 위해서 소모되는 비용
+		 *  
+		 *  Math.min(   S + Sn*(C-2))      ,      S+Sn+Bn*(C+1)   )
+		 *  
+		 *  이걸 한글로 풀어서 사용하면
+		 *  
+		 *  처음 Math.min ()함수의 첫 파라메터는 그냥 사이클을 사이클 안의 있는 엘리먼트들만 사용해서 해결하는 방법
+		 *         사이클 전체 합 + 사이클에서 가장 작은 값 * ( 사이클의 크기 - 2) 
+		 *  
+		 *  두번째파라메터는 이게 위에 엘리먼트들의 weight나 가지는 비용들이 클 경우는 현저하게 비효율적일수 있어서
+		 *        사이클의 전체의 합 + 사이클 내 가장 작은 값 +  배열에서 가장 작은 값 * ( 사이클의 크기 + 1)
+
+		 *  1. 사이클 배열 획득
+		 *  2. 찾은 사이클들을 이터레이션 돌면서 위의 공식대로 비용 합산
+ *
+ */
+class Node {
+	int i,d;
+	public Node(int i, int d) {
+		this.i = i;
+		this.d = d;
+	} 
+}
+
+class Cycle  {
+	List<Node> nodes = new ArrayList<Node>();
+
+	public void addNode(Node n) {
+		nodes.add(n);
+	}
+
+	public int[] findCycleWithStartIndex(int s) {
+		Stack<Integer> stack = new Stack<Integer>();
+
+		int p = s;
+		int next = -1;
+
+		while( ! stack.contains(next) && stack.size() < nodes.size() ) {
+			if(next != p) {
+				if(next != -1) p = next;
+				stack.push(p);
+			} else {
+				break;
+			}
+			for(Node n : nodes) {
+				if(n.i == p && n.i >= s) {
+					next = n.d;
+					break;
+				}
+			}
+		}
+
+		if( p == next) return null;
+//		if( stack.size() +1  == nodes.size() - s  ) return null;
+
+		int[] result = new int[stack.size()];
+		int size = stack.size();
+		for(int i=0; i<size; i++) {
+			result[i] = stack.pop();
+		}
+
+		return result;
+
+	}
+}
+
+
+public class source {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+		List<Integer> things = new ArrayList<Integer>();
+		List<Integer> sorted = new ArrayList<Integer>();
+		int n = Integer.parseInt(br.readLine());
+
+		for(int i = 0 ; i < n; i++)	things.add(Integer.parseInt(br.readLine()));
+
+		sorted.addAll(things);
+		Collections.sort(sorted);
+
+		int[] cycle;
+		long weightTotal = 0 ;
+		int Bn = (int) sorted.get(0);
+		long S = 0, Sn = Integer.MAX_VALUE, C = 0; 
+
+		int startCycleCheck = 1;
+		
+		Cycle c = new Cycle();
+		
+		for(int i = 0 ; i < n; i++)  {
+			c.addNode(new Node(i+1,   sorted.indexOf(things.get(i))  + 1   )  );
+		}
+
+		do {
+			cycle = c.findCycleWithStartIndex(startCycleCheck++);
+
+			if(cycle != null) {
+					for(Integer i : cycle) {
+						int w = (int) things.get(i-1);
+						if(Sn > w) Sn = w;
+						C++;
+						S+=w;
+					}
+					weightTotal+=Math.min(S + Sn*(C-2)      ,      S+Sn+Bn*(C+1)   );
+			}
+		} while( startCycleCheck < n);
+		System.out.println(weightTotal);
+	}
+
+}
