@@ -1,0 +1,10 @@
+public class source {
+
+	public static void main(String[] args) {
+		String[] splits = br.readLine().split(" ");
+		int N = Integer.parseInt(splits[0]);
+		int M = Integer.parseInt(splits[1]);
+		int L = Integer.parseInt(splits[2]);
+	}
+
+}
