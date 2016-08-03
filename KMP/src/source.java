@@ -25,16 +25,24 @@ class source {
 		 */ 
 		int[] P = new int[pattern.length()];
 		P[0] = -1;
-		int now = 0;
+		int now = -1;
 
 		for(int i = 1 ; i < pattern.length(); i++) {
-			if(  pattern.charAt(now) == pattern.charAt(i) ) {
-				P[i] = now ;
+			if(  pattern.charAt(1+now) == pattern.charAt(i) ) {
 				now++;
+				P[i] = now ;
 			} else if(now == -1) {
 				P[i] = -1;
 			}else {
-				now = P[now];
+				now= i-1;;
+				while(now!= -1) {
+					now = P[now];
+					if(pattern.charAt(now+1)  == pattern.charAt(i)) {
+						P[i] = now+1;
+						break;
+					}
+				}
+				if(now == -1) P[i] = now;
 			}
 		}
 
@@ -49,20 +57,38 @@ class source {
 		int result=0;
 		List<Integer>startIndexList = new ArrayList<Integer>();
 
-		while( ( i =i+p ) < context.length()  ) {
+		while( i  < context.length()  ) {
 			if(pattern.charAt(p) == context.charAt(i)) {
 				if(p == pattern.length()-1) {
-					p = -1;
 					result ++;
-					startIndexList.add(i);
+					startIndexList.add(i +1 - pattern.length() + 1);
+					
+					if(P[p] == -1) {
+						p = 0;
+						i ++;
+					}else {
+						p  = P[p]+1;
+						i+=p;
+					}
+					i ++;
+				} else {
+					p++;
+					i++;
 				}
-				p++;
 			} else {
-				p = P[p];
-				i++;
+				if(P[p] == -1) {
+					p = 0;
+					i ++;
+				}else {
+					p  = P[p]+1;
+					i+=p;
+				}
 			}
 		}
 		
 		System.out.println(result);
+		for(Integer s : startIndexList)
+			System.out.print(s + " ");
+		System.out.println();
 	}
 }
