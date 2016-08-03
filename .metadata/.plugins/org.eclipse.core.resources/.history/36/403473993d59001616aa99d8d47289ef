@@ -1,0 +1,56 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+
+/****
+ * 
+ * 시간 제한	메모리 제한
+	1.0 초	256 MB
+	문제
+	접미사 배열이란 전산학에서 어떤 문자열의 접미사를 사전식 순서대로 나열한 배열을 말한다.
+	
+	예를 들면, FOOD의 접미사는 FOOD, OOD, OD, D 로 총 4가지가 있고 접미사 배열은 총 4가지의 접미사를 사전순으로 나열한 것이므로 다음과 같다. D, FOOD, OD, OOD
+	
+	입력
+	첫째 줄에 문자열이 주어진다. 문자열은 알파벳 대문자로만 구성이 되있으며 길이는 1000 이하이다.
+	
+	출력
+	입력으로 주어진 문자열의 접미사 배열을 한줄에 하나씩 출력하라.
+	
+	힌트
+	예제 입력
+	
+	FOOD
+	예제 출력
+	
+	D
+	FOOD
+	OD
+	OOD
+ *
+ */
+public class source {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		String str = br.readLine();
+
+		char[] strCharArray = str.toCharArray();
+		
+		Arrays.sort(strCharArray);
+		
+		for(int i = 0; i < strCharArray.length; i++) {  //정렬된 character
+			for(int j = str.length()-1 ; j >= 0 ; j--) {
+				if(strCharArray[i] == str.charAt(j)) {					
+					System.out.println(str.substring(str.length()-j));
+					strCharArray[i] = ' ';
+				}
+			}
+		}
+			
+		
+	}
+
+}

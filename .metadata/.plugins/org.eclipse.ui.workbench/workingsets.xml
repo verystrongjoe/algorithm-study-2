@@ -44,10 +44,20 @@
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1470105410643_9" label="160802" name="160802">
 <item elementID="=나누기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=계단오르기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=바둑돌 잇기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=휴게소" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=거듭제곱 구하기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=바둑돌 잇기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
-<item elementID="=계단오르기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=가장 가까운 두점" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=보드 게임" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1470187208259_10" label="160803" name="160803">
+<item elementID="=마트료시카" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=prime" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=KMP" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=암호 해독" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=접미사배열" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=독재자 지영이" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1459303092313_0" label="Window Working Set" name="Aggregate for window 1459303092313"/>
 </workingSetManager>
