@@ -7,15 +7,31 @@ import java.util.List;
 /**
  *  KMP 알고리즘 
  *  http://blog.naver.com/choyi0521?Redirect=Log&logNo=80206821567
- *   
  *  문자열 패턴 검색시 유용한 알고리즘
+ *  
+ *  테스트 케이스!!
+ *  ababcababcababac
+ababcababcababaa
+
+
+ABCDABCDABEE
+ABCDABE
+
+AAAA
+AA
+
+ABAABCCA
+AA
+
+A B C D A B E
+-1-1-1 -1 0 -1 -1
+
+
  */
 class source {
 
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-//		int N = Integer.parseInt(br.readLine());
-	
 		String context = br.readLine();
 		String pattern = br.readLine();
 
@@ -29,12 +45,11 @@ class source {
 
 		for(int i = 1 ; i < pattern.length(); i++) {
 			if(  pattern.charAt(1+now) == pattern.charAt(i) ) {
-				now++;
-				P[i] = now ;
+				P[i] = ++now ;
 			} else if(now == -1) {
 				P[i] = -1;
 			}else {
-				now= i-1;;
+				now= i-1;
 				while(now!= -1) {
 					now = P[now];
 					if(pattern.charAt(now+1)  == pattern.charAt(i)) {
@@ -50,45 +65,42 @@ class source {
 		 * P[i]를 구하게 되면 이를 가지고 원래 context를  iterate하면서 계속 스캔을 한다. 
 		 * 그래서 실제로 P[i]를 이용하여 계산
 		 * 실제로 찾은 것  개수를 sum up 하면서 총 찾은 횟수를 찾을 수 있다.
-		 * 
 		 */
 		int p= 0;
 		int i = 0;
 		int result=0;
-		List<Integer>startIndexList = new ArrayList<Integer>();
+		List<Integer>l = new ArrayList<Integer>();
 
 		while( i  < context.length()  ) {
+			
 			if(pattern.charAt(p) == context.charAt(i)) {
 				if(p == pattern.length()-1) {
 					result ++;
-					startIndexList.add(i +1 - pattern.length() + 1);
-					
-					if(P[p] == -1) {
-						p = 0;
-						i ++;
-					}else {
-						p  = P[p]+1;
-						i+=p;
+					l.add(i +1 - pattern.length() + 1);
+					p =P[p];
+				} 
+				p++;
+				i++;
+			} 
+			else { 	// 여기는 unmatch가 일어났당!!
+				if(p==0) i++;
+				else {
+					while(p != 0) {
+							p = P[p-1];
+							if( p == -1) {
+								p=0; break;
+							} else if(context.charAt(i) == pattern.charAt(p+1)) {
+								p++;
+								break;
+							}
 					}
-					i ++;
-				} else {
-					p++;
-					i++;
-				}
-			} else {
-				if(P[p] == -1) {
-					p = 0;
-					i ++;
-				}else {
-					p  = P[p]+1;
-					i+=p;
 				}
 			}
 		}
 		
 		System.out.println(result);
-		for(Integer s : startIndexList)
-			System.out.print(s + " ");
-		System.out.println();
+		for(int q = 0; q < l.size(); q++) {
+			System.out.print(l.get(q) + (  (q==(l.size()-1 )) ? "":  " ") );
+		}
 	}
 }

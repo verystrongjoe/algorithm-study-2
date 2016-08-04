@@ -1,0 +1,54 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/***
+ * 
+ * 
+ * 
+ * 
+ * 시간 제한	메모리 제한
+	1.0 초	512 MB
+	문제
+	이차원 평면에 점 N개로 이루어진 단순 다각형이 주어진다. 이때 이 다각형이 평면에서 차지하는 면적을 구해보자. 다각형의 면적은 반드시 0보다 크다.
+	
+	입력
+	첫째 줄에 다각형을 이루는 점의 갯수 (1 ≦ N ≦ 100,000)이 주어지고,
+	
+	둘째 줄 부터 N개의 점의 정수 좌표(-10^9 ≦ x, y ≦ 10^9)가 입력으로 주어진다.
+	
+	다각형의 좌표는 시계 방향 또는 반시계 방향 순서로 주어진다.
+	
+	출력
+	주어진 단순 다각형이 이루는 넓이를 소수 둘째 자리에서 반올림 한 값을 출력한다.
+	
+	힌트
+	입력 예시
+	
+	3
+	1 1
+	1 2
+	2 1
+	출력 예시
+	
+	0.5
+ * 
+ * 
+ * 
+ *
+ */
+public class source {
+
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+	
+		String splits = br.readLine().split(" ");
+		
+		for()
+
+		
+	}
+
+}

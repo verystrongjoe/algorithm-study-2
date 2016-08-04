@@ -1,0 +1,122 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Stack;
+
+/****
+ * 
+ * 
+ *  시간 제한	메모리 제한
+	1.0 초	512 MB
+	문제
+	지영이의 꿈은 독재자다. 독재를 하기 위해서는 권력에 반항하지 못하게 국민들의 저항을 막는 것이 중요하기 때문에, 출판물의 검열은 꼭 필요한 일이다.
+
+	지영이의 친구인 당신은 지영이를 도와 문자열을 검열하는 일을 도와주기로 했다.
+
+	정확한 검열 방식은 다음과 같다.
+
+	문자열 S에서 패턴 T가 존재하는지 검색한다.
+	패턴 T가 존재한다면, 그 패턴이 최초로 발생하는 위치를 삭제한다.
+	패턴이 존재하지 않을 때까지 작업을 반복한다.
+	입력
+	첫 줄에 문자열 S가 주어진다. S의 길이는 최대 1,000,000이다.
+
+	다음 줄에는 검열할 패턴 T가 주어진다. T의 길이는 S의 길이 이하이다.
+
+	S와 T는 모두 알파벳 소문자로만 이루어진다.
+
+	출력
+	문제에서 설명한 검열 방식으로 문자열에서 패턴 T를 삭제한 문자열을 출력한다.
+
+	힌트
+	입력 예시
+
+	whatthemomooofun
+	moo
+	출력 예시
+
+	whatthefun
+ * 
+ *
+ */
+class source {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		//	int N = Integer.parseInt(br.readLine());
+
+		String context = br.readLine();
+		String pattern = br.readLine();
+
+		Stack<String> cs = new LinkedList<Integer>();
+		
+		/**
+		 * P는 Prefix/Postfix의 준말을 쓴거 같고 여튼 점화식 함수이다. 이 알고리즘의 기반은 동적프로그래밍이라고 알아두자
+		 * P[i]는 1~i까지의 문자열에 대해 1~i의 문자열(전체로 prefix = postfix가 같게 되므로 의미 상실) 제외한 prefix와 postfix가 같은 최대 문자열의 길이라고 정의!!
+		 */ 
+		int[] P = new int[pattern.length()];
+		P[0] = -1;
+		int now = -1;
+
+		for(int i = 1 ; i < pattern.length(); i++) {
+			if(  pattern.charAt(1+now) == pattern.charAt(i) ) {
+				now++;
+				P[i] = now ;
+			} else if(now == -1) {
+				P[i] = -1;
+			}else {
+				now= i-1;;
+				while(now!= -1) {
+					now = P[now];
+					if(pattern.charAt(now+1)  == pattern.charAt(i)) {
+						P[i] = now+1;
+						break;
+					}
+				}
+				if(now == -1) P[i] = now;
+			}
+		}
+
+		/**
+		 * P[i]를 구하게 되면 이를 가지고 원래 context를  iterate하면서 계속 스캔을 한다. 
+		 * 그래서 실제로 P[i]를 이용하여 계산
+		 * 실제로 찾은 것  개수를 sum up 하면서 총 찾은 횟수를 찾을 수 있다.
+		 */
+		int p= 0;
+		int i = 0;
+		int result=0;
+		List<Integer>startIndexList = new ArrayList<Integer>();
+
+		while( i  < context.length()  ) {
+
+			if(pattern.charAt(p) == context.charAt(i)) {
+
+				if(p == pattern.length()-1) {
+					result ++;
+					startIndexList.add(i +1 - pattern.length() + 1);
+					p =P[p];
+				} 
+				p++;
+				i++;
+
+			} 
+			// 여기는 unmatch가 일어났당!!
+			else {
+				if(P[p] == -1) {
+					p = 0;
+				}else {
+					p  = P[p];
+				}
+				i++;
+			}
+		}
+
+		System.out.println(result);
+		for(Integer s : startIndexList)
+			System.out.print(s + " ");
+		System.out.println();
+	}
+}
