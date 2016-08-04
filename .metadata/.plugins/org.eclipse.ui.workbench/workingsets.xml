@@ -62,9 +62,10 @@
 <item elementID="=암호 해독" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1470269796815_11" label="160804" name="160804">
-<item elementID="=다각형의 넓이" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=교차점" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=convexhull" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=다각형의 넓이" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=폐지 두번 줍기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1459303092313_0" label="Window Working Set" name="Aggregate for window 1459303092313"/>
 </workingSetManager>

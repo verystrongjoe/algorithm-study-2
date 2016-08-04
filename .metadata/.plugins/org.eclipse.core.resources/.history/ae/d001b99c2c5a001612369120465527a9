@@ -1,0 +1,121 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.PriorityQueue;
+import java.util.Stack;
+
+/****
+ * 
+ * 
+ *  시간 제한	메모리 제한
+	1.0 초	512 MB
+	문제
+	지영이의 꿈은 독재자다. 독재를 하기 위해서는 권력에 반항하지 못하게 국민들의 저항을 막는 것이 중요하기 때문에, 출판물의 검열은 꼭 필요한 일이다.
+
+	지영이의 친구인 당신은 지영이를 도와 문자열을 검열하는 일을 도와주기로 했다.
+
+	정확한 검열 방식은 다음과 같다.
+
+	문자열 S에서 패턴 T가 존재하는지 검색한다.
+	패턴 T가 존재한다면, 그 패턴이 최초로 발생하는 위치를 삭제한다.
+	패턴이 존재하지 않을 때까지 작업을 반복한다.
+	입력
+	첫 줄에 문자열 S가 주어진다. S의 길이는 최대 1,000,000이다.
+
+	다음 줄에는 검열할 패턴 T가 주어진다. T의 길이는 S의 길이 이하이다.
+
+	S와 T는 모두 알파벳 소문자로만 이루어진다.
+
+	출력
+	문제에서 설명한 검열 방식으로 문자열에서 패턴 T를 삭제한 문자열을 출력한다.
+
+	힌트
+	입력 예시
+
+	whatthemomooofun
+	moo
+	출력 예시
+
+	whatthefun
+ * 
+ *
+ */
+class source {
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		String context = br.readLine();
+		String pattern = br.readLine();
+		
+		int[] P = new int[pattern.length()];
+		P[0] = -1;
+		int now = -1;
+
+		for(int i = 1 ; i < pattern.length(); i++) {
+			if(  pattern.charAt(1+now) == pattern.charAt(i) ) {
+				P[i] = ++now ;
+			} else if(now == -1) {
+				P[i] = -1;
+			}else {
+				now= i-1;
+				while(now!= -1) {
+					now = P[now];
+					if(pattern.charAt(now+1)  == pattern.charAt(i)) {
+						P[i] = now+1;
+						break;
+					}
+				}
+				if(now == -1) P[i] = now;
+			}
+		}
+
+		int p= 0;
+		int i = 0;
+		List<Integer>l = new ArrayList<Integer>();
+
+		while( i  < context.length()  ) {
+			
+			if(pattern.charAt(p) == context.charAt(i)) {
+				if(p == pattern.length()-1) {
+					context.substring(0, i +1 - pattern.length());
+					p =P[p];
+				} 
+				p++;
+				i++;
+			} 
+			else { 	// 여기는 unmatch가 일어났당!!
+				if(p==0) i++;
+				else {
+					while(p != 0) {
+							p = P[p-1];
+							if( p == -1) {
+								p=0; break;
+							} else if(context.charAt(i) == pattern.charAt(p+1)) {
+								p++;
+								break;
+							}
+					}
+				}
+			}
+		}
+		
+//		bw.write(result + "\n");
+//		System.out.println(result);
+		String r = "";
+		for(int q = 0; q < stack.size(); q++) {
+//			System.out.print(l.get(q)  + " " );
+			r = r.concat(stack.pop());
+		}
+		bw.write(r);
+		
+		bw.flush();
+		bw.close();
+	}
+}
