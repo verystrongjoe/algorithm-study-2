@@ -1,0 +1,95 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+/***
+ * 
+ * 
+ * 시간 제한	메모리 제한
+	1.0 초	512 MB
+	문제
+	그래프에서 탐색을 하는 방법에는 여러 가지가 존재한다. 깊이 우선 탐색(DFS; Depth First Search)과 너비 우선 탐색(BFS; Breadth First Search)가 대표적인 탐색 방법이다. 깊이 우선 탐색과 너비 우선 탐색을 하는 프로그램을 작성하시오.
+	
+	입력
+	첫 번째 줄에 그래프의 정점의 개수 V, 간선의 개수 E, 그리고 시작 정점의 번호 S가 공백으로 분리되어 주어진다. (1 ≤ S ≤ V ≤ 20,000, 1 ≤ E ≤ 100,000)
+	
+	두 번째 줄부터 E개의 줄에 걸쳐 각 간선의 정보인 x, y가 공백으로 분리되어 주어진다. 이는 x와 y를 잇는 간선이 존재한다는 것을 의미한다. (1 ≤ x, y ≤ V, x ≠ y)
+	
+	출력
+	첫 번째 줄에 정점 S에서 시작한 깊이 우선 탐색의 결과 중 오름차순으로 가장 빠른 것을 출력한다.
+	
+	두 번째 줄에 정점 S에서 시작한 너비 우선 탐색의 결과 중 오름차순으로 가장 빠른 것을 출력한다.
+	
+	힌트
+	입력 예제
+	
+	5 6 2
+	1 2
+	1 3
+	2 4
+	3 4
+	3 5
+	4 5
+	출력 예제
+	
+	2 1 3 4 5
+	2 1 4 3 5
+ *
+ */
+public class source {
+
+	public static void main(String[] args) throws IOException {
+		
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+
+		//1 ≤ S ≤ V ≤ 20,000, 1 ≤ E ≤ 100,000
+		String[] splits = br.readLine().split(" ");
+		int V = Integer.parseInt(splits[0]);
+		int E = Integer.parseInt(splits[1]);
+		int S = Integer.parseInt(splits[2]);
+		
+		List[] adjacentList;
+		
+		for(int i = 0 ; i < V; i++) {
+			adjacentList[i] = new ArrayList<Integer>();
+		}
+		
+		for(int  i = 0; i < E; i++) {
+			splits = br.readLine().split(" ");
+			int start = Integer.parseInt(splits[0]);
+			int end = Integer.parseInt(splits[1]);
+			adjacentList[start].add(end);
+		}
+		
+		
+		//dfs
+		boolean[] isVisited = new boolean[V];
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(S);
+
+		while(!stack.isEmpty()) {
+			int present = stack.pop();
+			
+			if(!isVisited[present]) {
+				bw.write(present + " ");
+				for(int c : adjacentList[present]) {
+					stack.push(c);
+				}
+			}
+		}
+		
+		
+		//bfs
+		
+		bw.flush();
+		bw.close();
+		
+		
+	}
+}

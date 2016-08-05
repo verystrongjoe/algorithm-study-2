@@ -1,0 +1,135 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+
+/***
+ * 
+ * 
+ * 
+ * 
+ * 시간 제한	메모리 제한
+	3.0 초	512 MB
+	문제
+	M * N 격자로 이루어진 도시가 있다. 이 도시 군데군데에는 폐지가 버려져 있다.
+
+	범수는 가장 왼쪽 위 격자 (1, 1)에서 출발하여 가장 오른쪽 아래 격자 (M, N)까지 이동하며 폐지를 줍는데, 최단 경로를 따라가야만 한다. 즉, 인접한 오른쪽 칸 또는 아래쪽 칸으로만 이동할 수 있다.
+
+	여기에 더해, (M, N)에서 다시 (1, 1)으로 이동하면서 폐지를 더 줍는다. 역시 최단 경로를 따라가야 한다. 즉, 인접한 왼쪽 칸 또는 위쪽 칸으로만 이동할 수 있다.
+
+	폐지를 한번 주우면 없어진다는 것에 유의하자.
+
+	이 때, 범수가 수집할 수 있는 폐지의 최대값을 출력하시오.
+
+	입력
+	첫 줄에는 테스트 케이스의 수를 나타내는 T(1 ≤ T ≤ 20)가 주어진다.
+
+	각 테스트 케이스의 첫 줄에는 N, M(2 ≤ N, M ≤ 100)이 주어진다. 다음 M줄에 N개의 문자가 주어진다.
+
+	'*'는 갈 수 있으며 폐지가 있는 곳을 나타낸다.
+
+	'.'는 갈 수 있지만 폐지가 없는 곳을 나타낸다.
+
+	'#'는 갈 수 없는 곳을 나타낸다.
+
+	(1, 1)과 (M, N)은 갈 수 있는 곳임이 보장된다.
+
+	또, 이 두 점 사이에 경로가 있음도 보장된다.
+
+	출력
+	각 테스트 케이스에 대해, 범수가 주울 수 있는 최대 폐지 수를 한 줄에 하나씩 출력한다.
+
+	힌트
+	예제 입력
+
+	2
+	9 7
+ *........
+	.....**#.
+	..**...#*
+	..####*#.
+	.*.#*.*#.
+	...#**...
+ *........
+	5 5
+	.*.*.
+ *###.
+ *.*.*
+	.###*
+	.*.*.
+	예제 출력
+
+	7
+	8
+	예제 보충
+
+	첫 번째 테스트 케이스에서, 범수가 (M, N)까지 가면 도시는 다음과 같이 변한다.
+
+	xxxxx....
+	....xxx#.
+	..**..x#*
+	..####x#.
+	.*.#*.x#.
+	...#**xxx
+ *.......x
+	x는 범수의 이동 경로를 나타낸다. 지금까지 수집한 폐지는 5개이다. 다시 (1, 1)로 가면 도시는 다음과 같이 변한다.
+
+	yxxxx....
+	y...xxx#.
+	yyyyyyy#*
+	..####y#.
+	.*.#*.y#.
+	...#**yxx
+ *.....yyy
+	y는 범수의 이동 경로를 나타낸다. 범수가 모은 총 폐지 양은 7개이므로 7를 출력한다.
+
+	두 번째 테스트 케이스의 경우, 해는 다음과 같다.
+
+	yxxxx
+	y###x
+	y.*.x
+	y###x
+	yyyyy
+ *
+ */
+public class source {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in) );
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out) );
+
+		int T = Integer.parseInt(br.readLine());
+
+		int M = Integer.parseInt(br.readLine());
+		int N = Integer.parseInt(br.readLine());
+		int[][] roads = new int[M][N];
+
+		for(int m = 0; m < M; m++ ) {
+			String line= br.readLine();
+			for(int n = 0; n < N; n++) {
+				roads[m][n] = line.charAt(n);
+			}
+			/**
+			 *  D(i,j,k) 
+			 *  	i는 가로 or 세로를 이동하여 움직인 총 turn수
+			 *  	j는 내려가면서 폐지를 줍는 사람의 x 좌표
+			 *     k는 올라가면서 폐지를 줍는 사람의 x 좌표 ( 내려가고 올라가고 하는 두번의 동작을 time series로 선행 후행 따지지 말고 그냥 상태를 
+			 *     하기 위해서 그냥 같이 내려가면서 줍는걸로 역발상!!		
+			 */
+			int D[][][] = new int[200][100][100];
+			
+			for(int i = 0; i < M*N; i++) {
+				for(int j = 0 ; j < M; j++) {
+					for(int k = 0; k < M; k++) {
+						
+						if(i == 0 && j == 0 && k == 0 ) D[i][j][k] =
+						
+					}
+				}
+			}
+			
+		}
+	}
+}

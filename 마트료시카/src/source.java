@@ -56,13 +56,6 @@ public class source {
 		출력 예제
 		
 		5
-		
-
-	
-
-
-
-
 	 */
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -77,10 +70,7 @@ public class source {
 		}
 		
 		for(int i = 0 ; i < N; i++) {
-			
 			int dollHeight = dolls[i];
-			
-			
 		}
 		
 	}

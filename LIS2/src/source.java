@@ -1,0 +1,73 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/****
+ * 
+ * 
+ * 
+ * 시간 제한	메모리 제한
+	2.0 초	512 MB
+	문제
+	N개의 자연수로 이루어진 수열이 들어왔을 때 가장 긴 증가 부분 수열을 출력해보자.
+	
+	입력
+	첫째 줄에 길이 N(1 ≤ N ≤ 300,000)이 입력된다.
+	
+	둘째 줄에 N개의 자연수가 차례대로 들어온다.
+	
+	각 자연수는 32비트 부호 있는 정수범위 내로 주어진다.
+	
+	출력
+	LIS의 길이를 출력한다.
+	
+	힌트
+	입력 예제
+	
+	10
+	1 1 2 2 3 3 2 2 5 5
+	출력 예제
+	
+	4
+	
+	
+	
+	수업에선 이 방법을 리스트로 해서 푸는 방법을 제시하였으나
+	아래링크에서처럼  Segment Tree로도 문제가 풀리고 
+	http://manzzup.blogspot.kr/2015/08/explained-finding-longest-increasing.html
+
+ * 
+ * 
+ * 여튼 수업에서 설명한 방식은
+ * 
+ * 우선 어떤 리스트가 있는데 이 리스트에선 데이터가 올라갈수록 계속 increasing하게 데이터가 쌓이고
+ * 만약에  1 5 7 8 2 3 이라는 녀석의 LIS를 구하기 위해선
+ *
+ *1 5 7 8 이 들어갔다가 2가 5 대신 들어가고 대신 5가 있던 곳에서 5 7 8 이라는 것의 데이터는 링크 정보로 계속 유지
+ * 그리고 2 위에 3이 들어가고 말이다. 그래서 
+ * 
+ *    대 강 그려보면
+ *        
+ *
+ */
+
+public class source {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int N = Integer.parseInt(br.readLine());
+		int[] sequence = new int[N];
+
+		String[] splits = br.readLine().split(" ");
+		
+		for(int i = 0 ; i < N; i++) {
+			sequence[i]= Integer.parseInt(splits[i]);
+			
+		}
+		
+		
+		
+		
+	}
+
+}

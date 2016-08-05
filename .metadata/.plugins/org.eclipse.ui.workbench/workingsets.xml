@@ -22,6 +22,7 @@
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469680195137_5" label="아카이브" name="아카이브">
 <item elementID="=사전테스트" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=색종이" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1469680206605_6" label="160726" name="160726">
 <item elementID="=집합" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
@@ -66,6 +67,11 @@
 <item elementID="=convexhull" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=다각형의 넓이" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 <item elementID="=폐지 두번 줍기" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=LIS2" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1470375979238_12" label="160805" name="160805">
+<item elementID="=그래프 순회" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=k번째 최단경로" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
 </workingSet>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1459303092313_0" label="Window Working Set" name="Aggregate for window 1459303092313"/>
 </workingSetManager>

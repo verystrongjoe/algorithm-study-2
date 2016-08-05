@@ -1,0 +1,80 @@
+http://comic.naver.com/webtoon/detail.nhn?titleId=682803&no=1&weekday=mon
+
+
+top coder competition
+https://www.topcoder.com/challenge-details/30054803/?type=develop
+
+
+
+
+오전 오후 3문제씩 과제 2~3문제
+매주 금 :  김동윤(르네상스홀)  / 박희진(파스칼홀)
+
+탐색 정렬 자료구조 그래프 > 탐욕법 분할정복 문자열 기하
+오후는 all 동적계획법
+
+=> 20일, 21일, 27일, 28일 ( 20/21일 오전 택일)
+APS고급 -> 수강
+
+사전테스트 금주중으로 열린다고함
+
+http://koitp.org
+
+https://github.com/verystrongjoe/algorithm-study
+
+
+
+소수경로
+http://wootool.tistory.com/71
+
+
+
+오르막길 
+https://www.acmicpc.net/problem/2846
+
+
+SVM
+http://www.kdnuggets.com/2016/07/support-vector-machines-simple-explanation.html
+
+Navie Bayes
+http://www.kdnuggets.com/2016/07/bayesian-machine-learning-explained.html
+http://blog.aylien.com/post/120703930533/naive-bayes-for-dummies-a-simple-explanation
+
+
+코세라 Statistics Inference
+https://www.coursera.org/learn/statistical-inference?recoOrder=27&utm_medium=email&utm_source=recommendations&utm_campaign=recommendationsEmail~recs_email_2016_07_10_17%3A57
+
+Explore your unstructured text data
+http://www.kdnuggets.com/2016/07/jmp-explore-unstructured-text-data.html
+
+
+http://www.kdnuggets.com/2016/07/data-science-summit-2016-9-talks.html
+http://www.kdnuggets.com/2016/07/storytelling-power-influence-data-science.html
+
+
+
+강사 PC
+
+\\70.50.44.49
+
+
+
+10
+1 5 2
+2 20 8
+3 30 17
+4 40 24
+5 50 37
+6 60 52
+7 70 59
+8 80 73
+9 90 84
+10 100 90
+
+
+
+
+사선식 
+http://m.blog.naver.com/chldnjswo01/110157075412
+
+
